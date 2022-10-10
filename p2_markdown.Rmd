@@ -1,0 +1,16 @@
+---
+title: "prob2 geral"
+author: "Rafael Arocho"
+date: "2022-10-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Prob1
+
+##var aleatória
+
+###
