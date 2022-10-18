@@ -9,8 +9,70 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Prob1
+# Prob 1
 
-##var aleatória
+## Variável aleatória discreta
+Uma variável que pode assumir no máximo um número contável de valores possíveis é chamada de variável descreta. Para uma variável discreta $X$, definimos a função discreta de probabilidade $p(a)$ de $X$ como
 
-###
+$$
+p(a) = P\{X=a\}
+$$
+A função discreta de probabilidade $p(a)$ é positiva para no máximo um número contável de valores de $a$. Isto é, se $X$ deve assumir um dos valores $x_1,x_2,...,$ então\
+\
+$p(x_i)\geqslant0$ para $i = 1,2,...$\
+$p(x)=0$ para todos os demais valores de $x$\
+
+
+Como $X$ deve receber um dos valores $x_i$, temos:\
+$$\sum_{i=1}^{\infty}p(x_i)=1$$  
+
+### Valor Esperado
+Um dos conceitos mais importantes na teoria da probabilidade é aquele do valor esperado de uma variável aleatória. Se $X$ é uma variável aleatória com função de probabilidade $p(x)$, então a *esperança*, ou *valor esperado*, de $X$, representada por $E[X]$, é definida por
+$$E[X] = \sum_{x:p(x)>0}$$  
+O valor esperado de $X$ é uma média ponderada dos possíveis valores que $X$ pode receber, com cada valor sendo ponderado pela probabilidade de que $X$ seja igual a esse valor.  
+
+### Esperança de uma função de uma variável aleatória
+Tomando uma função $g(X)$ uma variável aleatória discreta, sabemos que ela tem uma função de probabilidade, que pode ser determinada a partir da função de probabilidade de $X$. Uma vez que tenhamos determinado a função de probabilidade de $g(X)$, podemos calcular $E[g(x)]$ usando a definição de valor esperado  
+Se $X$ é uma variável aleatória discreta que pode receber os valores $x_i, i\geqslant1$, com respectivas probabilidades $p(x_i)$, então, para qualquer função real $g$,
+$$E[g(X)]=\sum_ig(x_i)p(x_i)$$  
+  
+### Variância  
+|       **Definição**   |
+|:---------------------:|
+|Se $X$ é uma variável aleatória com média $\mu$, então a variância de $X$, representada por $Var(X)$, é definida como $$Var(X)=E[(X-\mu)]^2$$|
+|                       |
+
+Outra fórmula para $Var(X)$ é, $$Var(X) = E[X^2]-(E[X])^2$$  
+  
+### As variáveis aleatórias Binomial e de Bernoulli
+
+Suponha que um experimento ou tentativa, cujo resultado possa ser classificado como um _sucesso_ ou um _fracasso_ seja realizado. Se $X=1$ quando o resultado é um sucesso e $X=0$ quando é um fracasso, então a função de probabilidade de $X$ é dada por
+
+$$ \begin{align}
+p(0)&=P\{X=0\}=1-p\\
+p(1)&=P\{X=1\}=p
+\end{align}
+$$  
+
+onde $p,0\leqslant p\leqslant1$, é a probabilidade de que a tentativa seja um sucesso.  
+Uma variável aleatória $X$ é chamada de *variável aleatória de Bernoulli* se sua função de probabilidade for dada pela equação acima para algum $p\in(0,1)$  
+Suponha agora que $n$ tentativas independentes, cada uma das quais com probabilidade de sucesso $p$ e probabilidade de fracasso $1-p$, sejam realizadas. / Se $X$ representa o número de sucessos que ocorrem nas $n$ tentativas, então diz-se que $X$ é uma *variável aleatória binomial* com parâmetros $(n,p)$. Assim, uma variável aleatória de Bernoulli é tão somente uma variável aleatória binomial com parâmetros $(1,p)$.  
+A função de probabilidade de uma variável aleatória binomial com parâmetros $(n,p)$ é dada por $$p(i) = {n\choose i} p^i(1-p)^{n-i} \qquad i=0,1,...,n$$  
+  
+#### Propriedades das variáveis aleatórias binomiais
+Vamos agora examinar as propriedades de uma variável aleatória binomial com parâmetros $n$ e $p$. Para começar, vamos calcular o seu valor esperado e sua variância. Então,
+$$
+E[X^k] = \sum^n_{i=0}i^k{n \choose i}p^i(1-p)^{n-i} \\
+= \sum^n_{i=1}i^k{n \choose i}p^i(1-p)^{n-i}
+$$  
+Realizando processos de transformação e a identidade 
+$$i{n\choose i}=n{{n-1}\choose{i-1}}$$  
+Chegamos no valor esperado: $$E[X]=np$$  
+Como $E[X] = np$, obtemos
+$$
+\begin{align}
+Var(X) &= E[X^2] - (E[X])^2 \\
+&= np[(n-1)p+1]-(np)^2 \\
+&= np(1-p)
+\end{align}
+$$
